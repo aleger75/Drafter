@@ -16,7 +16,7 @@ class Tag(models.Model):
 class Draft(models.Model):
     author = models.ForeignKey(User)
     title = models.CharField(max_length=100)
-    tags = models.ManyToManyField(Tag, related_name="notes_associated")
+    tags = models.ManyToManyField(Tag, related_name="drafts_associated")
     content = models.TextField(max_length=2000)
     creation_date = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(auto_now=True)

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    {% load staticfiles %}
+    {% load bootstrap3 %}
+    <meta charset="UTF-8">
+    <title>Drafter</title>
+    {% bootstrap_css %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+  </head>
+  <body ng-app="Drafter">
+    <div class="container">
+      <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" ui-sref="/">Drafter</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li id="home" class="active">
+            <a class="home-event" ui-sref="/">Home</a>
+            </li>
+            <li id="drafts">
+            <a class="draft-event" ui-sref="/drafts/">Drafts</a>
+            </li>
+            <li id="tags">
+            <a class="tag-event" ui-sref="/tags/">Tags</a>
+            </li>
+            <li>
+            <form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Go!</button>
+            </form>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+            <a ui-sref="/accounts/signout/"><strong>Sign out</strong> ({{ user }})</a>
+            </li>
+            <li>
+            <a ui-sref="/accounts/signin/"><strong>Sign in</strong></a>
+            </li>
+            <li>
+            <a ui-sref="/accounts/register/"><strong>Register</strong></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </nav>
+      <div ui-view></div>
+    </div>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="{% static "js/main.js" %}"></script>
+    <script src="{% static "js/app/app.js" %}"></script>
+    <script src="{% static "js/app/drafts/drafts.js" %}"></script>
+    <script src="{% static "js/app/services/draftsService.js" %}"></script>
+    <script src="{% static "js/angular-ui-router.min.js" %}"></script>
+  </body>
+</html>

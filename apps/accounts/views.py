@@ -12,14 +12,3 @@ class UserView(viewsets.ModelViewSet):
     model = User
     queryset = User.objects.filter()
     permission_classes = [IsAdminOrIsSelf]
-
-    @detail_route(methods=['post'], permission_classes=[IsAdminOrIsSelf])
-    def set_password(self, request, pk=None):
-        user = self.get_object()
-        password = request.data['password']
-        if password and user:
-            user.set_password(password)
-            user.save()
-            return Response({'status': 'password set'})
-        else:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
