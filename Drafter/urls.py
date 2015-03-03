@@ -14,5 +14,6 @@ router.register(r'drafts', DraftView)
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include(router.urls, namespace='api')),
+    url(r'^api/accounts/auth/signin/', 'rest_framework_jwt.views.obtain_jwt_token', name='signin'),
     url(r'^$', TemplateView.as_view(template_name='base.html')),
 )
