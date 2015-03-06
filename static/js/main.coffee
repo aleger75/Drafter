@@ -16,4 +16,5 @@ $(document).ready ->
         return
 
     $(window).hashchange()
+
     return

@@ -17,13 +17,18 @@ rootConfig = ($stateProvider, $rootScope) ->
             templateUrl: VIEWS_URL + 'drafts.html',
             url: '/',
             controller: 'DraftsCtrl',
-            controllerAs: 'drafts'
+            controllerAs: 'drafts',
         }
         .state 'root.drafts', {
             url: '/drafts/',
             templateUrl: VIEWS_URL + 'drafts.html',
             controller: 'DraftsCtrl',
             controllerAs: 'drafts'
+        }
+        .state 'root.signin', {
+            templateUrl: VIEWS_URL + 'signin.html',
+            controller: 'RootCtrl',
+            controllerAs: 'root',
         }
 
     return

@@ -3,29 +3,30 @@
   'use strict';
   var RootCtrl;
 
-  RootCtrl = function($window, RootService) {
+  RootCtrl = function($window, $state, RootService) {
+    this.getUser = function() {
+      var token;
+      token = $window.localStorage.getItem('token');
+      this.user = token ? JSON.parse(atob(token.split('.')[1])) : void 0;
+    };
+    this.getUser();
     this.signin = function() {
+      var self;
+      self = this;
       RootService.signin(this.username, this.password).then(function(data) {
         $window.localStorage.setItem('token', data.data.token);
-        this.user = this.getUser();
+        self.getUser();
+        $state.go('root.home', {}, {
+          reload: true
+        });
       });
     };
     this.signout = function() {
       $window.localStorage.removeItem('token');
       this.user = void 0;
     };
-    this.getUser = function() {
-      var token;
-      token = $window.localStorage.getItem('token');
-      if (token) {
-        return JSON.parse(atob(token.split('.')[1]));
-      } else {
-        return void 0;
-      }
-    };
-    this.user = this.getUser();
   };
 
-  angular.module('root').controller('RootCtrl', ['$window', 'RootService', RootCtrl]);
+  angular.module('root').controller('RootCtrl', ['$window', '$state', 'RootService', RootCtrl]);
 
 }).call(this);

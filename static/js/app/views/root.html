@@ -37,7 +37,7 @@
             </a>
           </li>
           <li ng-if="!root.user">
-            <a ui-sref="root.signin">
+            <a ui-sref="root.signin" id="trigger-signin">
               <strong>Sign in</strong>
             </a>
           </li>
@@ -51,5 +51,4 @@
     </div>
   </nav>
   <div ui-view></div>
-  <div ui-view="signInModal" autoscroll="false"></div>
 </div>
