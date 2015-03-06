@@ -9,6 +9,15 @@ RootService = ($rootScope, $http) ->
             password: password
         }
 
+    @register = (username, password, email, firstName, lastName) ->
+        $http.post $rootScope.BASE_API + '/accounts/', {
+            username: username,
+            password: password,
+            email: email,
+            first_name: firstName,
+            last_name: lastName
+        }
+
     return
 
 

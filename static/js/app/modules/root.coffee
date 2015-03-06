@@ -4,7 +4,7 @@
 VIEWS_URL = '/static/js/app/views/'
 
 
-rootConfig = ($stateProvider, $rootScope) ->
+rootConfig = ($stateProvider) ->
 
     $stateProvider
         .state 'root', {
@@ -24,11 +24,6 @@ rootConfig = ($stateProvider, $rootScope) ->
             templateUrl: VIEWS_URL + 'drafts.html',
             controller: 'DraftsCtrl',
             controllerAs: 'drafts'
-        }
-        .state 'root.signin', {
-            templateUrl: VIEWS_URL + 'signin.html',
-            controller: 'RootCtrl',
-            controllerAs: 'root',
         }
 
     return

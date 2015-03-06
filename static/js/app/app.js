@@ -17,6 +17,6 @@
     $rootScope.VIEWS_URL = '/static/js/app/views/';
   };
 
-  angular.module('Drafter', ['ui.router', 'root']).config(['$httpProvider', '$interpolateProvider', '$urlRouterProvider', DrafterConfig]).run(['$rootScope', DrafterRun]);
+  angular.module('Drafter', ['ui.router', 'ui.bootstrap', 'root']).config(['$httpProvider', '$interpolateProvider', '$urlRouterProvider', DrafterConfig]).run(['$rootScope', DrafterRun]);
 
 }).call(this);

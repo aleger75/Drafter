@@ -3,7 +3,7 @@
   'use strict';
   var RootCtrl;
 
-  RootCtrl = function($window, $state, RootService) {
+  RootCtrl = function($window, $state, $modal, $rootScope, RootService) {
     this.getUser = function() {
       var token;
       token = $window.localStorage.getItem('token');
@@ -16,8 +16,23 @@
       RootService.signin(this.username, this.password).then(function(data) {
         $window.localStorage.setItem('token', data.data.token);
         self.getUser();
-        $state.go('root.home', {}, {
+        $state.go($state.current.name, {}, {
           reload: true
+        });
+        $rootScope.modalInstance.close();
+      });
+    };
+    this.register = function() {
+      var self;
+      self = this;
+      return RootService.register(this.username, this.password, this.email, this.firstName, this.lastName).then(function(data) {
+        RootService.signin(self.username, self.password).then(function(data) {
+          $window.localStorage.setItem('token', data.data.token);
+          self.getUser();
+          $state.go($state.current.name, {}, {
+            reload: true
+          });
+          return $rootScope.modalInstance.close();
         });
       });
     };
@@ -25,8 +40,22 @@
       $window.localStorage.removeItem('token');
       this.user = void 0;
     };
+    this.openSignin = function() {
+      $rootScope.modalInstance = $modal.open({
+        templateUrl: '/static/js/app/views/signin.html',
+        controller: 'RootCtrl',
+        controllerAs: 'root'
+      });
+    };
+    this.openRegister = function() {
+      $rootScope.modalInstance = $modal.open({
+        templateUrl: '/static/js/app/views/register.html',
+        controller: 'RootCtrl',
+        controllerAs: 'root'
+      });
+    };
   };
 
-  angular.module('root').controller('RootCtrl', ['$window', '$state', 'RootService', RootCtrl]);
+  angular.module('root').controller('RootCtrl', ['$window', '$state', '$modal', '$rootScope', 'RootService', RootCtrl]);
 
 }).call(this);

@@ -1,13 +1,18 @@
 <div class="form-wrapper">
-  <form class="form" ng-submit="root.signin()">
-    <div class="form-group">
-      <label for="username">Username: </label>
-      <input type="text" required class="form-control" placeholder="Username" ng-model="root.username">
-    </div>
-    <div class="form-group">
-      <label for="password">Password: </label>
-      <input type="password" class="form-control" required placeholder="Password" ng-model="root.password">
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
-  </form>
+  <div class="modal-header">
+    <h3>Signin</h3>
+  </div>
+  <div class="modal-body">
+    <form class="form" ng-submit="root.signin()">
+      <div class="form-group">
+        <label for="username">Username: </label>
+        <input type="text" required class="form-control" placeholder="Username" ng-model="root.username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password: </label>
+        <input type="password" class="form-control" required placeholder="Password" ng-model="root.password">
+      </div>
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+  </div>
 </div>

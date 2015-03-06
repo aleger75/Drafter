@@ -25,6 +25,7 @@ DrafterRun = ($rootScope) ->
 
 angular.module 'Drafter', [
     'ui.router',
+    'ui.bootstrap',
     'root'
 ]
 

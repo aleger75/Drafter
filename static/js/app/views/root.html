@@ -37,12 +37,12 @@
             </a>
           </li>
           <li ng-if="!root.user">
-            <a ui-sref="root.signin" id="trigger-signin">
+            <a ng-click="root.openSignin()" id="trigger-signin">
               <strong>Sign in</strong>
             </a>
           </li>
           <li ng-if="!root.user">
-            <a ui-sref="root.register">
+            <a ng-click="root.openRegister()">
               <strong>Register</strong>
             </a>
           </li>

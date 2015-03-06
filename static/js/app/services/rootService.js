@@ -10,6 +10,15 @@
         password: password
       });
     };
+    this.register = function(username, password, email, firstName, lastName) {
+      return $http.post($rootScope.BASE_API + '/accounts/', {
+        username: username,
+        password: password,
+        email: email,
+        first_name: firstName,
+        last_name: lastName
+      });
+    };
   };
 
   angular.module('root').service('RootService', ['$rootScope', '$http', RootService]);

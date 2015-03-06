@@ -5,7 +5,7 @@
 
   VIEWS_URL = '/static/js/app/views/';
 
-  rootConfig = function($stateProvider, $rootScope) {
+  rootConfig = function($stateProvider) {
     $stateProvider.state('root', {
       abstract: true,
       templateUrl: VIEWS_URL + 'root.html',
@@ -21,10 +21,6 @@
       templateUrl: VIEWS_URL + 'drafts.html',
       controller: 'DraftsCtrl',
       controllerAs: 'drafts'
-    }).state('root.signin', {
-      templateUrl: VIEWS_URL + 'signin.html',
-      controller: 'RootCtrl',
-      controllerAs: 'root'
     });
   };
 
