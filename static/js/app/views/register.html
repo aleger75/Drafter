@@ -3,28 +3,32 @@
     <h3>Register</h3>
   </div>
   <div class="modal-body">
-    <form class="form" ng-submit="root.register()">
+    <form class="form" ng-submit="auth.register()">
       <div class="form-group">
         <label for="username">Username: </label>
-        <input type="text" required class="form-control" placeholder="Username" ng-model="root.username">
+        <input type="text" required class="form-control" placeholder="Username" ng-model="auth.username">
       </div>
       <div class="form-group">
         <label for="password">Password: </label>
-        <input type="password" class="form-control" required placeholder="Password" ng-model="root.password">
+        <input type="password" class="form-control" required placeholder="Password" ng-model="auth.password">
       </div>
       <div class="form-group">
         <label for="email">Email: </label>
-        <input type="text" class="form-control" required placeholder="Password" ng-model="root.email">
+        <input type="text" class="form-control" required placeholder="example@example.com" ng-model="auth.email">
       </div>
       <div class="form-group">
         <label for="firstName">First name: </label>
-        <input type="text" class="form-control" placeholder="Password" ng-model="root.firstName">
+        <input type="text" class="form-control" placeholder="First name" ng-model="auth.firstName">
       </div>
       <div class="form-group">
         <label for="lastName">Last name: </label>
-        <input type="text" class="form-control" placeholder="Password" ng-model="root.lastName">
+        <input type="text" class="form-control" placeholder="Last name" ng-model="auth.lastName">
       </div>
       <button type="submit" class="btn btn-primary">Register</button>
     </form>
+  </div>
+  <div class="modal-footer">
+    <a df-close-modal class="pull-left">Cancel</a>
+    <a df-signin>Already registered?</a>
   </div>
 </div>

@@ -1,7 +1,7 @@
 'use strict'
 
 
-RootService = ($rootScope, $http) ->
+AuthService = ($rootScope, $http) ->
 
     @signin = (username, password) ->
         $http.post $rootScope.BASE_API + '/accounts/auth/signin/', {
@@ -23,8 +23,8 @@ RootService = ($rootScope, $http) ->
 
 angular.module 'root'
 
-    .service 'RootService', [
+    .service 'AuthService', [
         '$rootScope',
         '$http',
-        RootService
+        AuthService
     ]
