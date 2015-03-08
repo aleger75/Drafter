@@ -5,7 +5,6 @@ RootCtrl = ($window, $scope, $rootScope) ->
 
     @user = {}
 
-    $rootScope.token = undefined;
     @setToken = ->
         $rootScope.token = $window.localStorage.getItem 'token'
         return

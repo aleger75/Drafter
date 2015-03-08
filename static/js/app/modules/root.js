@@ -20,6 +20,11 @@
       templateUrl: VIEWS_URL + 'drafts.html',
       controller: 'DraftsCtrl',
       controllerAs: 'drafts'
+    }).state('root.new', {
+      url: '/drafts/new/',
+      templateUrl: VIEWS_URL + 'new_draft.html',
+      controller: 'NewDraftCtrl',
+      controllerAs: 'nd'
     });
   };
 

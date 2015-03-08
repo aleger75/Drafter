@@ -9,3 +9,15 @@ a {
 .modal-backdrop {
   bottom: 0;
 }
+
+textarea {
+  resize: none;
+}
+
+textarea.form-control {
+  height: 400px;
+}
+
+.bottom-menu > a {
+  margin-left: 5px;
+}

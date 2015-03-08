@@ -23,7 +23,13 @@ rootConfig = ($stateProvider) ->
             url: '/drafts/',
             templateUrl: VIEWS_URL + 'drafts.html',
             controller: 'DraftsCtrl',
-            controllerAs: 'drafts'
+            controllerAs: 'drafts',
+        }
+        .state 'root.new', {
+            url: '/drafts/new/',
+            templateUrl: VIEWS_URL + 'new_draft.html',
+            controller: 'NewDraftCtrl',
+            controllerAs: 'nd',
         }
 
     return

@@ -42,6 +42,11 @@
       templateUrl: VIEWS_URL + 'drafts.html',
       controller: 'DraftsCtrl',
       controllerAs: 'drafts'
+    }).state('root.new', {
+      url: '/drafts/new/',
+      templateUrl: VIEWS_URL + 'new_draft.html',
+      controller: 'NewDraftCtrl',
+      controllerAs: 'nd'
     });
   };
 
@@ -101,12 +106,28 @@
 
 (function() {
   'use strict';
+  var NewDraftCtrl;
+
+  NewDraftCtrl = function(NewDraftService) {
+    this.create = function() {
+      return NewDraftService.create(this.title, this.tags, this.content);
+    };
+    this.preview = function() {
+      alert('preview');
+    };
+  };
+
+  angular.module('root').controller('NewDraftCtrl', ['NewDraftService', NewDraftCtrl]);
+
+}).call(this);
+
+(function() {
+  'use strict';
   var RootCtrl;
 
   RootCtrl = function($window, $scope, $rootScope) {
     var self;
     this.user = {};
-    $rootScope.token = void 0;
     this.setToken = function() {
       $rootScope.token = $window.localStorage.getItem('token');
     };
@@ -171,6 +192,26 @@
   };
 
   angular.module('root').service('DraftsService', ['$http', '$rootScope', DraftsService]);
+
+}).call(this);
+
+(function() {
+  'use strict';
+  var NewDraftService;
+
+  NewDraftService = function($rootScope, $http) {
+    return this.create = function(title, tags, content) {
+      return $http.post($rootScope.BASE_API + '/drafts/', {
+        author: this.user.username,
+        author_id: this.user.user_id,
+        title: title,
+        tags: tags,
+        content: content
+      });
+    };
+  };
+
+  angular.module('root').service('NewDraftService', ['$rootScope', '$http', NewDraftService]);
 
 }).call(this);
 

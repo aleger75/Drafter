@@ -5,7 +5,6 @@
   RootCtrl = function($window, $scope, $rootScope) {
     var self;
     this.user = {};
-    $rootScope.token = void 0;
     this.setToken = function() {
       $rootScope.token = $window.localStorage.getItem('token');
     };

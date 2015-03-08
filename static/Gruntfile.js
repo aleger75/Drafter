@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 				src: ['**/*.coffee'],
 				dest: 'js/',
 				ext: '.js'
-		  	}
+			}
 		},
 		concat: {
 			js: {
