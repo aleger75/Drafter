@@ -1,0 +1,5 @@
+Django==1.7.5
+django-bootstrap3==5.1.1
+djangorestframework==3.1.0
+djangorestframework-jwt==1.2.0
+PyJWT==0.4.3
