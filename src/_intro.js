@@ -1,3 +1,3 @@
-(function(window, undefined) {
+(function(window, document) {
 
   "use strict";

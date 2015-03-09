@@ -3,10 +3,24 @@
   <head>
     <title>Drafter editor</title>
     <link rel="stylesheet" href="./demo/assets/normalize.css">
+    <style>
+      .container {
+        padding-top: 75px;
+        padding-left: 30%;
+        padding-right: 30%;
+      }
+      #editable {
+        border: 1px solid black;
+        height: 300px;
+      }
+    </style>
   </head>
   <body>
-    <div id="editable"></div>
-    <script src="dist/Drafter-editor.min.js"></script>
+    <div class="container">
+      <center><h1>Drafter Editor</h1></center>
+      <div id="editable"></div>
+    </div>
+    <script src="dist/Drafter-editor.js"></script>
     <script type="text/javascript">
       var ed = new DrafterEditor('editable');
       console.log(ed);

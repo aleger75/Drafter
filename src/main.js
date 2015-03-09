@@ -1,5 +1,3 @@
-/* Drafter-editor main */
-
 // Constructor
 function DrafterEditor(context) {
 
@@ -13,9 +11,10 @@ function DrafterEditor(context) {
     throw new Error('Invalid type of argument');
   }
 
-  this.elt.editable = true;
+  this.elt.contentEditable = true;
   this._css = this.elt.style;
 
+  return this.init();
 }
 
 if (typeof addEventListener !== 'undefined') {
@@ -32,4 +31,8 @@ else {
   DrafterEditor.addEvent = function(obj, event, fn) {
     obj['on' + event] = fn;
   }
+}
+
+if (typeof window.DrafterEditor === 'undefined') {
+  window.DrafterEditor = DrafterEditor;
 }
