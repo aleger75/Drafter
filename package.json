@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "main": "dist/Drafter-editor.min.js",
   "description": "Rich text editor for Drafter, supports Markdown",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com//Drafter-editor.git"
-  },
-  "keywords": [],
+  "keywords": [
+    "javascript",
+    "editor",
+    "markdown"
+  ],
   "author": "Alexandre LEGER",
   "license": "MIT",
   "readmeFilename": "README.md",

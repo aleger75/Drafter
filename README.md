@@ -6,7 +6,7 @@ Rich text editor for Drafter, supports Markdown
 
 A JavaScript library by Alexandre LEGER.
 
-See the [project homepage](http://.github.io/Drafter-editor).
+See the [project homepage](https://google.com).
 
 ## Installation
 
@@ -14,7 +14,7 @@ Using Bower:
 
     bower install Drafter-editor
 
-Or grab the [source](https://github.com//Drafter-editor/dist/Drafter-editor.js) ([minified](https://github.com//Drafter-editor/dist/Drafter-editor.min.js)).
+Or grab the [source](https://google.com) ([minified](https://google.com)).
 
 ## Usage
 
