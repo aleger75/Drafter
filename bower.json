@@ -1,0 +1,12 @@
+{
+  "name": "Drafter-editor",
+  "version": "0.0.0",
+  "main": "dist/Drafter-editor.min.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {}
+}
