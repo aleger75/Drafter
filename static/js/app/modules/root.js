@@ -25,6 +25,11 @@
       templateUrl: VIEWS_URL + 'new_draft.html',
       controller: 'NewDraftCtrl',
       controllerAs: 'nd'
+    }).state('root.detail', {
+      url: '/draft/:id/:slug/',
+      templateUrl: VIEWS_URL + 'draft_detail.html',
+      controller: 'DraftDetailCtrl',
+      controllerAs: 'detail'
     });
   };
 

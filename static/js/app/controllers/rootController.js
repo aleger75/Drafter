@@ -2,7 +2,7 @@
   'use strict';
   var RootCtrl;
 
-  RootCtrl = function($window, $scope, $rootScope) {
+  RootCtrl = function($window, $scope, $rootScope, $state) {
     var self;
     this.user = {};
     this.setToken = function() {
@@ -22,9 +22,10 @@
     this.signout = function() {
       $window.localStorage.removeItem('token');
       $rootScope.token = void 0;
+      $state.go('root.home');
     };
   };
 
-  angular.module('root').controller('RootCtrl', ['$window', '$scope', '$rootScope', RootCtrl]);
+  angular.module('root').controller('RootCtrl', ['$window', '$scope', '$rootScope', '$state', RootCtrl]);
 
 }).call(this);

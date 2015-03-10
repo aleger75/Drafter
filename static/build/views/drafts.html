@@ -1,5 +1,5 @@
 <div class="list-group">
-  <a ui-sref="[[ draft.url ]]" class="list-group-item" ng-repeat="draft in drafts.drafts">
+  <a ui-sref="root.detail({ id:draft.id, slug:draft.slug})" class="list-group-item" ng-repeat="draft in drafts.drafts">
     [[ draft.title ]]
     <span class="badge badge-[[ tag ]]" ng-repeat="tag in draft.tags">#[[ tag ]]</span>
   </a>

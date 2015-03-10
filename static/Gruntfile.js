@@ -33,12 +33,17 @@ module.exports = function(grunt) {
 				src: ['build/app.js'],
 				dest: 'build/drafter.min.js'
 			}
-		}
+		},
+    watch: {
+      files: ['coffee/**/*.coffee'],
+      tasks: ['coffee', 'concat', 'uglify']
+    }
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-coffee');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.registerTask('compile', ['coffee', 'concat', 'uglify']);
 
 }

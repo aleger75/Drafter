@@ -1,7 +1,7 @@
 'use strict'
 
 
-RootCtrl = ($window, $scope, $rootScope) ->
+RootCtrl = ($window, $scope, $rootScope, $state) ->
 
     @user = {}
 
@@ -24,6 +24,7 @@ RootCtrl = ($window, $scope, $rootScope) ->
     @signout = ->
         $window.localStorage.removeItem 'token'
         $rootScope.token = undefined
+        $state.go 'root.home'
         return
 
     return
@@ -35,5 +36,6 @@ angular.module 'root'
         '$window',
         '$scope',
         '$rootScope',
+        '$state',
         RootCtrl
     ]

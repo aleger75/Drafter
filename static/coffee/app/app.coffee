@@ -7,8 +7,8 @@ DrafterConfig = ($httpProvider, $interpolateProvider, $urlRouterProvider) ->
     $httpProvider.defaults.xsrfCookieName = 'csrftoken'
     $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken'
 
-    $interpolateProvider.startSymbol('[[')
-    $interpolateProvider.endSymbol(']]')
+    $interpolateProvider.startSymbol '[['
+    $interpolateProvider.endSymbol ']]'
 
     $urlRouterProvider.otherwise '/'
 

@@ -4,6 +4,7 @@ from rest_framework import viewsets
 from .permissions import TagViewPermission, IsAdminOrIsSelf
 from rest_framework.decorators import detail_route
 from rest_framework.response import Response
+from rest_framework import permissions
 
 
 class TagView(viewsets.ModelViewSet):
@@ -24,4 +25,6 @@ class DraftView(viewsets.ModelViewSet):
     serializer_class = DraftSerializer
     model = Draft
     queryset = Draft.objects.filter()
-    permission_classes = [IsAdminOrIsSelf]
+
+    def get_permission(self):
+        return permissions.AllowAny()

@@ -47,6 +47,11 @@
       templateUrl: VIEWS_URL + 'new_draft.html',
       controller: 'NewDraftCtrl',
       controllerAs: 'nd'
+    }).state('root.detail', {
+      url: '/draft/:id/:slug/',
+      templateUrl: VIEWS_URL + 'draft_detail.html',
+      controller: 'DraftDetailCtrl',
+      controllerAs: 'detail'
     });
   };
 
@@ -82,6 +87,26 @@
   };
 
   angular.module('root').controller('AuthCtrl', ['$window', '$state', '$rootScope', 'AuthService', AuthCtrl]);
+
+}).call(this);
+
+(function() {
+  'use strict';
+  var DraftDetailCtrl;
+
+  DraftDetailCtrl = function($stateParams, DraftDetailService) {
+    this.draft = {};
+    this.getDraft = function() {
+      var self;
+      self = this;
+      return DraftDetailService.get($stateParams.id).then(function(data) {
+        self.draft = data.data;
+      });
+    };
+    this.getDraft();
+  };
+
+  angular.module('root').controller('DraftDetailCtrl', ['$stateParams', 'DraftDetailService', DraftDetailCtrl]);
 
 }).call(this);
 
@@ -125,7 +150,7 @@
   'use strict';
   var RootCtrl;
 
-  RootCtrl = function($window, $scope, $rootScope) {
+  RootCtrl = function($window, $scope, $rootScope, $state) {
     var self;
     this.user = {};
     this.setToken = function() {
@@ -145,10 +170,11 @@
     this.signout = function() {
       $window.localStorage.removeItem('token');
       $rootScope.token = void 0;
+      $state.go('root.home');
     };
   };
 
-  angular.module('root').controller('RootCtrl', ['$window', '$scope', '$rootScope', RootCtrl]);
+  angular.module('root').controller('RootCtrl', ['$window', '$scope', '$rootScope', '$state', RootCtrl]);
 
 }).call(this);
 
@@ -175,6 +201,20 @@
   };
 
   angular.module('root').service('AuthService', ['$rootScope', '$http', AuthService]);
+
+}).call(this);
+
+(function() {
+  'use strict';
+  var DraftDetailService;
+
+  DraftDetailService = function($http) {
+    this.get = function(id) {
+      return $http.get('http://127.0.0.1:8000/api/drafts/' + String(id + '/'));
+    };
+  };
+
+  angular.module('root').service('DraftDetailService', ['$http', DraftDetailService]);
 
 }).call(this);
 
