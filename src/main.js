@@ -1,4 +1,5 @@
 // Constructor
+
 function DrafterEditor(context) {
 
   if (typeof context === 'string') {
@@ -17,21 +18,17 @@ function DrafterEditor(context) {
   return this.init();
 }
 
-if (typeof addEventListener !== 'undefined') {
-  DrafterEditor.addEvent = function(obj, event, fn) {
-    obj.addEventListener(event, fn, false);
+(function() {
+
+  DrafterEditor.prototype = {
+
+    init: function() {
+      this.test = 'test';
+    },
+
   }
-}
-else if (typeof attachEvent !== 'undefined') {
-  DrafterEditor.addEvent = function(obj, event, fn) {
-    obj.attachEvent(event, fn, false);
-  }
-}
-else {
-  DrafterEditor.addEvent = function(obj, event, fn) {
-    obj['on' + event] = fn;
-  }
-}
+
+})();
 
 if (typeof window.DrafterEditor === 'undefined') {
   window.DrafterEditor = DrafterEditor;

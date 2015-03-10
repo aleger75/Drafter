@@ -29,9 +29,9 @@ module.exports = function(grunt) {
       }
     },
 
-    qunit: {
+    /*qunit: {
       files: ['test/*.html']
-    },
+    },*/
 
     //jshint: {
       //files: ['dist/Drafter-editor.js'],
@@ -46,8 +46,8 @@ module.exports = function(grunt) {
     //},
 
     watch: {
-      files: ['<%= jshint.files %>'],
-      tasks: ['concat', 'jshint', 'qunit']
+      files: ['src/*.js'],
+      tasks: ['concat', 'uglify' /*'jshint', 'qunit'*/]
     }
 
   });
